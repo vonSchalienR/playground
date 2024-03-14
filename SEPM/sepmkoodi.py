@@ -1,9 +1,5 @@
 #File created 20201203 8:58 GMT+2
-      
-
 import random
-
-
 
 # Game ends when player or computer wins three times.
 def GameOver(user,computer):
@@ -97,7 +93,7 @@ def play_game():
 
             else:
                 print("Paper covers rock! todo, who wins.")
-                #computer_wins += 1
+                computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
         elif user_input == "paper":
