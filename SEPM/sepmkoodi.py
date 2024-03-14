@@ -21,7 +21,7 @@ def winner(computer, user):
     if user == 3:
         print("You won. Wuhuu!")
     else:
-        print("Computer won. parempi onni ens kerralla!")
+        print("Computer won. Parempi onni ens kerralla!")
 
 
 def tilanneTiedotus(user, computer):
@@ -37,8 +37,10 @@ def computer_choice(choices):
     return random.choice(choices)
 
 # TODO: continue here
-#def help():
-#    print("Help missing")
+def help():
+    print("Welcome to HELP")
+    print("Kyl sä nyt KSP osaat ;)")
+    print("Help finished.")
 
 def play_game():
     # user and computer wins     
@@ -88,11 +90,11 @@ def play_game():
 
             elif computer_chose == "lizzard":
                 print("Kivi murskaa liskon! You win!")
-                computer_wins += 1
+                user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)                
 
             else:
-                print("Paper covers rock! todo, who wins.")
+                print("Paper covers rock! Computer wins!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
@@ -121,17 +123,17 @@ def play_game():
             if computer_chose == "paper":
                 print("Scissors cuts paper! You win!")
                 user_wins += 1
+
             elif computer_chose == "Spock":
                 print("Spock smashes Scissors! You lose!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
+
             elif computer_chose == "lizzard":
                 print("Scissors decapitates Lizzard! You win!")
                 user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
-
-
-                
+   
             else:
                 print("Rock smashes scissors! You lose.")
                 computer_wins += 1
@@ -142,11 +144,11 @@ def play_game():
                 print("Lizard poisons Spock! You win!")
                 user_wins += 1
 
-
             elif computer_chose == "rock":
                 print("Rock crushes lizzard! You lose, buuhuu!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
+
             elif computer_chose == "paper":
                 print("Lizard eats paper! You win!")
                 user_wins += 1
