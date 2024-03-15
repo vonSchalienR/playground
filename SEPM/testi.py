@@ -11,10 +11,10 @@ def GameOver(user,computer):
 # Some comment here       
 def winner(computer, user):
     print("Game over!")
-    if computer == 3:
-           print("Computer won. Parempi onni ens kerralla!")
+    if user == 3:
+        print("You won. Wuhuu!")
     else:
-        print("You won. WOHOO!")
+        print("Computer won. Parempi onni ens kerralla!")
 
 def tilanneTiedotus(user, computer):
     print()
