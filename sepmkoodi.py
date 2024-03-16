@@ -1,24 +1,20 @@
 #File created 20201203 8:58 GMT+2
 import random
 import pygame
+import pygame.time
 
 # Game ends when player or computer wins three times.
 # Sounds!
 
 pygame.init()
-
-like_sfx = pygame.mixer.Sound("like.mp3")
-dislike_sfx = pygame.mixer.Sound("dislike.mp3")
+like_sfx = pygame.mixer.Sound("like.wav")
+dislike_sfx = pygame.mixer.Sound("dislike.wav")
 
 def GameOver(user,computer):
-
-    if user==3 or computer==3:
-        
+    if user==3 or computer==3: 
         return True
     
-    else:
-
-        
+    else:  
         return False
 
 # Some comment here       
@@ -27,12 +23,12 @@ def winner(user,computer):
     if user == 3:
         like_sfx.play()
         print("You won. Wuhuu!")
-        
 
     elif  computer == 3:
         dislike_sfx.play()
-        print("Computer won. Parempi onni ens kerralla!")
-        
+        print("Computer won. Better Luck Nextime!")
+    
+    pygame.time.delay(2000)
 
 
 def tilanneTiedotus(user, computer):
@@ -47,9 +43,11 @@ def computer_choice(choices):
 
     return random.choice(choices)
 
+
+# Maybe add better more concise help here?
 def help():
     print("Welcome to HELP")
-    print("Kyl sä nyt KSP osaat ;)")
+    print("Well you should know, YOU NERD ;)")
     print("Help finished.")
 
 def play_game():
