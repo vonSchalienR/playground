@@ -1,7 +1,15 @@
 #File created 20201203 8:58 GMT+2
 import random
+import pygame
 
 # Game ends when player or computer wins three times.
+# Sounds!
+
+pygame.init()
+
+like_sfx = pygame.mixer.Sound("like.mp3")
+dislike_sfx = pygame.mixer.Sound("dislike.mp3")
+
 def GameOver(user,computer):
 
     if user==3 or computer==3:
@@ -17,9 +25,14 @@ def GameOver(user,computer):
 def winner(user,computer):
     print("Game over!")
     if user == 3:
+        like_sfx.play()
         print("You won. Wuhuu!")
+        
+
     elif  computer == 3:
+        dislike_sfx.play()
         print("Computer won. Parempi onni ens kerralla!")
+        
 
 
 def tilanneTiedotus(user, computer):
