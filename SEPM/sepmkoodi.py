@@ -14,13 +14,11 @@ def GameOver(user,computer):
         return False
 
 # Some comment here       
-def winner(computer, user):
-
+def winner(user,computer):
     print("Game over!")
-    
     if user == 3:
         print("You won. Wuhuu!")
-    else:
+    elif  computer == 3:
         print("Computer won. Parempi onni ens kerralla!")
 
 
@@ -36,7 +34,6 @@ def computer_choice(choices):
 
     return random.choice(choices)
 
-# TODO: continue here
 def help():
     print("Welcome to HELP")
     print("Kyl sä nyt KSP osaat ;)")
@@ -54,17 +51,22 @@ def play_game():
     print("Type Q for quit.\n")
 
     # Repeat game until game is over.
-    while rounds < 3:
+    while user_wins < 3 and computer_wins < 3:
 
         user_input = "null"
         choices = ["rock", "paper", "scissors", "lizard", "spock"]
 
          
-        user_input = input("Tee valintasi (rock, paper, scissors, lizzard, Spock): ")
+        user_input = input("Make a choise (rock, paper, scissors, lizard, spock): ")
+
+        if user_input.lower() == 'q':
+            print("Quitting game.")
+            return
+
+        if user_input.lower() == 'help':
+            help()
+            continue
         
-
-
-
         # Computer's "random" choice...
         computer_chose = computer_choice(choices)
         
@@ -83,18 +85,18 @@ def play_game():
                 user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
-            elif computer_chose == "Spock":
-                print("Spock vaprizes Rock! You lose!")
+            elif computer_chose == "spock":
+                print("Spock vaprizes rock! You lose!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
-            elif computer_chose == "lizzard":
-                print("Kivi murskaa liskon! You win!")
+            elif computer_chose == "lizard":
+                print("Rock crushes lizard! You won!")
                 user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)                
 
             else:
-                print("Paper covers rock! Computer wins!")
+                print("Paper covers rock! You lose!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
@@ -105,14 +107,15 @@ def play_game():
                 user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
-            elif computer_chose == "Spock":
-                print("Paper disproves spcok! You win!")
+            elif computer_chose == "spock":
+                print("Paper disproves spock! You win!")
                 user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
             elif computer_chose == "lizard":
                 print("Lizard eats paper! You lose!")
                 computer_wins += 1
+                tilanneTiedotus(user_wins, computer_wins)
             else:
                 print("Scissors cuts paper! You lose.")
                 computer_wins += 1
@@ -123,14 +126,15 @@ def play_game():
             if computer_chose == "paper":
                 print("Scissors cuts paper! You win!")
                 user_wins += 1
+                tilanneTiedotus(user_wins, computer_wins)
 
-            elif computer_chose == "Spock":
-                print("Spock smashes Scissors! You lose!")
+            elif computer_chose == "spock":
+                print("Spock smashes scissors! You lose!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
-            elif computer_chose == "lizzard":
-                print("Scissors decapitates Lizzard! You win!")
+            elif computer_chose == "lizard":
+                print("Scissors decapitates lizard! You win!")
                 user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
    
@@ -140,12 +144,14 @@ def play_game():
                 tilanneTiedotus(user_wins, computer_wins)
 
         elif user_input == "lizard":
-            if computer_chose == "Spock":
+
+            if computer_chose == "spock":
                 print("Lizard poisons Spock! You win!")
                 user_wins += 1
+                tilanneTiedotus(user_wins, computer_wins)
 
             elif computer_chose == "rock":
-                print("Rock crushes lizzard! You lose, buuhuu!")
+                print("Rock crushes lizard! You lose, buuhuu!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
 
@@ -154,9 +160,31 @@ def play_game():
                 user_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
             else:
-                print("Scissors decapitates Lizard! You lose!")
+                print("Scissors decapitates lizard! You lose!")
                 computer_wins += 1
                 tilanneTiedotus(user_wins, computer_wins)
+
+        elif user_input == "spock":
+            #valmis
+            if computer_chose == "scissors":
+                print("Spock smashes scissors! You win!")
+                user_wins += 1
+                tilanneTiedotus(user_wins, computer_wins)
+            #valmis
+            elif computer_chose == "rock":
+                print("Spock vaprizes Rock! You win!")
+                user_wins += 1
+                tilanneTiedotus(user_wins, computer_wins)
+            #valmis
+            elif computer_chose == "lizard":
+                print("Lizard poisons Spock! You lose!")
+                computer_wins += 1
+                tilanneTiedotus(user_wins, computer_wins)                
+            #valmis
+            else:
+                print("Paper disproves spock! You lose!")
+                computer_wins += 1
+                tilanneTiedotus(user_wins, computer_wins)        
         rounds+=1
                 
     # Announce winner     
