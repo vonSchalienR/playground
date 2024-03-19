@@ -1,4 +1,6 @@
 #File created 20201203 8:58 GMT+2
+#Author x
+#description : Game     
 import random
 import pygame
 import pygame.time
